@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen | Designer & Creative Director</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1a1a1a;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d0d0d0;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 1px solid #1a1a1a;
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .cta-button:hover {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-4px);
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #f5f5f5;
+            color: #666;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            padding: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .contact-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: #1a1a1a;
+            text-decoration: none;
+            border-bottom: 1px solid #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            border-bottom-color: #999;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #e0e0e0;
+            padding: 2rem 5%;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero, .about, .projects, .contact {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="logo">AC</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Creative Designer & Visual Storyteller</h1>
+        <p class="subtitle">I create thoughtful, elegant designs that connect brands with their audiences through compelling visuals and meaningful experiences.</p>
+        <button class="cta-button" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">View My Work</button>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div>
+            <div class="about-image"></div>
+        </div>
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I'm a designer with 8+ years of experience crafting digital and print solutions for global brands. My approach combines strategic thinking with creative experimentation, resulting in work that's both beautiful and purposeful.</p>
+            <p>Specializing in brand identity, visual design, and art direction, I work closely with clients to translate their vision into compelling visual narratives that resonate with their target audience.</p>
+            <p>When I'm not designing, you'll find me exploring new design trends, photography, or collaborating with creative teams on innovative projects.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3 class="project-title">Brand Identity</h3>
+                    <p class="project-description">Complete rebranding for a sustainable fashion startup</p>
+                    <div class="project-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Identity</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3 class="project-title">Digital Campaign</h3>
+                    <p class="project-description">Multi-channel marketing campaign for tech product launch</p>
+                    <div class="project-tags">
+                        <span class="tag">Digital</span>
+                        <span class="tag">Marketing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3 class="project-title">Packaging Design</h3>
+                    <p class="project-description">Eco-friendly packaging concept for beverage brand</p>
+                    <div class="project-tags">
+                        <span class="tag">Packaging</span>
+                        <span class="tag">Print</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3 class="project-title">Web Design</h3>
+                    <p class="project-description">Modern responsive website for creative agency</p>
+                    <div class="project-tags">
+                        <span class="tag">Web</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3 class="project-title">Publication Design</h3>
+                    <p class="project-description">Editorial design for quarterly lifestyle magazine</p>
+                    <div class="project-tags">
+                        <span class="tag">Editorial</span>
+                        <span class="tag">Print</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3 class="project-title">Poster Campaign</h3>
+                    <p class="project-description">Visual campaign for cultural event with bold typography</p>
+                    <div class="project-tags">
+                        <span class="tag">Print</span>
+                        <span class="tag">Typography</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p><a href="mailto:hello@alexchen.com">hello@alexchen.com</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Phone</h3>
+                <p><a href="tel:+1234567890">+1 (234) 567-8900</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Location</h3>
+                <p>New York, NY</p>
+            </div>
+        </div>
+        <button class="cta-button" onclick="window.location.href='mailto:hello@alexchen.com'">Send Me an Email</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Alex Chen. All rights reserved.</p>
+    </footer>
+</body>
+</html>
